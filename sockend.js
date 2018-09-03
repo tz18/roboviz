@@ -6,7 +6,10 @@ try {
 }
 let express = require('express'),
     app = express();
-var server = app.listen(process.env.PORT, process.env.IP);
+    
+//Adding default port if environment doesn't have one.
+const port = 8000;
+var server = app.listen(process.env.PORT | port, process.env.IP);
 
 let io = require('socket.io').listen(server),
     fs = require('fs'),
